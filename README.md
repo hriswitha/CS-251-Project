@@ -40,6 +40,6 @@ Client has been implemented in `client.py` and server in `server.py`.
 
 
 ### Team members contributions:
-1. Hriswitha - Databasing, interface
-2. Vivek - Direct messages and images
+1. Hriswitha - Databasing, image sending
+2. Vivek - Direct messages and interface
 3. Sohith - Group working
