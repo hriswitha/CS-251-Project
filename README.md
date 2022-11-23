@@ -13,6 +13,17 @@ This project is a chat room with one server and multiple clients. The server pro
 - Databasing
 
 Client has been implemented in `client.py` and server in `server.py`.
+
+### Tech stack
+1. `python3`
+   libraries
+   - `socket` for server and client interaction
+   - `hashlib` for password encryption
+   - `psycopg2` for databasing
+   - `threading` for multiple client threads
+   - `rsa` and  for message encryption
+2. PostgreSQL for databasing
+
 ### Running the chat
 1. Setup the database in PostgreSQL. In out code it has been named `testdb`
 2. Run the server as 
@@ -26,3 +37,9 @@ Client has been implemented in `client.py` and server in `server.py`.
   ```
   Here make sure the port number for server and client should be the same.
 4. Now by following the instructions that will appear on the client proceed your safe message 
+
+
+### Team members contributions:
+1. Hriswitha - Databasing, interface
+2. Vivek - Direct messages and images
+3. Sohith - Group working
