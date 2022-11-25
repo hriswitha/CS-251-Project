@@ -6,13 +6,16 @@
 This project is a chat room with one server and multiple clients. The server provides a chat room for clients to join. After joining the chat, the clients can send messages to the chat room where all chat messages are logged and displayed.
 
 ### This project covers main domains:
-- Authentication
+- Password Authentication
 - client-socket interaction
-- Multi-server load balancing (To be done)
-- Encryption (To be done)
-- Databasing
+- Multi-server load balancing
+- Message Encryption
+- Shared Databasing
+- Retrieving offline messages
+- Groups and Personal Chats
+- Performance Analysis (Done till logging, got errors in scripting)
 
-Client has been implemented in `client.py` and server in `server.py`.
+Client has been implemented in `client.py`, server in `server.py` and load balancer in `loadbalancer.py`.
 
 ### Tech stack
 1. `python3`
@@ -21,25 +24,34 @@ Client has been implemented in `client.py` and server in `server.py`.
    - `hashlib` for password encryption
    - `psycopg2` for databasing
    - `threading` for multiple client threads
-   - `rsa` and  for message encryption
+   - `rsa` for assymmetric message encryption
+   - `Fernet` for symmetric encryption
+   - `logging` for creating log file of clients
 2. PostgreSQL for databasing
 
 ### Running the chat
 1. Setup the database in PostgreSQL. In out code it has been named `testdb`
-2. Run the server as 
+2. Run the load balancer as 
+   ```
+   python3 loadbalancer.py <PORT1>
+   ```
+   Run this only once
+3. Run the server as 
   ```
-  python3 server.py <PORT>
+  python3 server.py <SERVER_PORT>
   ```
-  For now we are giving server from command line argument, but it will be changed in the end
-3. Run the client as 
+  We can run as many servers as we want but each with different server port
+4. Run the client as 
   ```
-  python3 client.py <PORT>
+  python3 client.py <PORT1>
   ```
-  Here make sure the port number for server and client should be the same.
-4. Now by following the instructions that will appear on the client proceed your safe message 
+  Here make sure the port number for client and load balancer as many as possible
+5. Now by following the instructions that will appear on the client proceed your safe message 
+
+
 
 
 ### Team members contributions:
 1. Hriswitha - Databasing, image sending
-2. Vivek - Direct messages and interface
-3. Sohith - Group working
+2. Vivek - Direct messages and message encryption
+3. Sohith - Group working, interface, load balancing
